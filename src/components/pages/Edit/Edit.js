@@ -56,7 +56,7 @@ class Edit extends React.Component {
       uid: authData.getUid(),
     };
     stuffData.putItem(itemId, updatedItem)
-      .then(() => this.props.history.push('/stuff'))
+      .then(() => this.props.history.push('/stuffgit sta'))
       .catch((err) => console.error('unable to save item: ', err));
   }
 

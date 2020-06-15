@@ -16,7 +16,6 @@ import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
 import MyStuff from '../components/pages/MyStuff/MyStuff';
 import New from '../components/pages/New/New';
 
-
 import fbConnection from '../helpers/data/connection';
 
 import './App.scss';

@@ -4,7 +4,7 @@ import './MyStuff.scss';
 
 import authData from '../../../helpers/data/authData';
 import stuffData from '../../../helpers/data/stuffData';
-import StuffCards from '../../shared/StuffCards/StuffCards';
+import ItemCards from '../../shared/ItemCards/ItemCards';
 
 class MyStuff extends React.Component {
   state = {
@@ -14,7 +14,7 @@ class MyStuff extends React.Component {
   getStuff = () => {
     const uid = authData.getUid();
     stuffData.getStuffByUid(uid)
-      .then((items) => this.setState({ items }))
+      .then((stuff) => this.setState({ stuff }))
       .catch((error) => console.error('Could not get stuff: ', error));
   }
 
@@ -31,13 +31,13 @@ class MyStuff extends React.Component {
   render() {
     const { stuff } = this.state;
 
-    const buildStuff = stuff.map((item) => <StuffCards key={item.id} item={item} removeItem={this.removeItem} />);
+    const buildItems = stuff.map((item) => <ItemCards key={item.id} item={item} removeItem={this.removeItem} />);
 
     return (
       <div className="MyStuff">
       <h1>My Stuff</h1>
         <div className="d-flex flex-wrap">
-        {buildStuff}
+        {buildItems}
         </div>
       </div>
     );

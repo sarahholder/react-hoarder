@@ -9,10 +9,12 @@ import {
   Switch,
 } from 'react-router-dom';
 
+import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
+
 import Auth from '../components/pages/Auth/Auth';
 import Edit from '../components/pages/Edit/Edit';
+import Single from '../components/pages/Single/Single';
 import Home from '../components/pages/Home/Home';
-import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
 import MyStuff from '../components/pages/MyStuff/MyStuff';
 import New from '../components/pages/New/New';
 
@@ -67,6 +69,7 @@ class App extends React.Component {
                 <Switch>
                   <PrivateRoute path='/home' component={Home} authed={authed}/>
                   <PrivateRoute path='/stuff' component={MyStuff} authed={authed}/>
+                  <PrivateRoute path='/items/:itemId' component={Single} authed={authed}/>
                   <PrivateRoute path='/new' component={New} authed={authed}/>
                   <PrivateRoute path='/edit/:itemId' component={Edit} authed={authed}/>
                   <PublicRoute path='/auth' component={Auth} authed={authed}/>

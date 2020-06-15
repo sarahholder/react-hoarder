@@ -16,6 +16,13 @@ class Single extends React.Component {
       .catch((err) => console.error('unable to get single item: ', err));
   }
 
+  removeItem = () => {
+    const { itemId } = this.props.match.params;
+    stuffData.deleteItem(itemId)
+      .then(() => this.props.history.push('/items'))
+      .catch((err) => console.error('unable to delete item: ', err));
+  }
+
   render() {
     const { item } = this.state;
     const { itemId } = this.props.match.params;
@@ -27,6 +34,7 @@ class Single extends React.Component {
         <img src={item.itemImage} alt={item.itemName}/>
         <p>{item.itemDescription}</p>
         <Link className="btn btn-dark" to={editLink}>Edit</Link>
+        <button className="btn btn-danger" onClick={this.removeItem}>Delete</button>
       </div>
     );
   }

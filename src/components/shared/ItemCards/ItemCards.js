@@ -11,7 +11,7 @@ class StuffCards extends React.Component {
 
   render() {
     const { item, removeItem } = this.props;
-    const singleLink = `/stuff/${item.id}`;
+    const singleLink = `/items/${item.id}`;
     const editLink = `/edit/${item.id}`;
 
     return (
